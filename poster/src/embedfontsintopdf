@@ -1,0 +1,25 @@
+#!/bin/bash
+INPUTFILE=$1
+if [ -z $1 ] ; then
+  echo "usage: embedfontsintopdf <file.pdf>";
+  echo " ";
+  echo "written by Philippe Dreuw, 2007"
+  exit 1;
+fi
+
+OUTPUTFILE=`echo $1 | sed 's/.pdf$/.embeddedfonts.pdf/'`
+
+echo "embedding fonts of inputfile '${INPUTFILE}' into outputfile '${OUTPUTFILE}'"
+
+# embedding fonts
+gs -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dNOPAUSE -q -dBATCH -sOutputFile=$OUTPUTFILE $INPUTFILE
+
+# checking fonts
+pdffonts ${OUTPUTFILE}
+
+echo "info: all values from the 'emb' column should be set to yes."
+echo "info: you should CHECK THE FIGURES ON ALL PAGES !!!.";
+echo "      Using acroread's 'Document Properties' of the";
+echo "      outputfile '${OUTPUTFILE}', you can check, if";
+echo "      all fonts are embedded."
+

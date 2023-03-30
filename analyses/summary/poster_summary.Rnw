@@ -1,0 +1,108 @@
+<<>>=
+doriarose <- new.env()
+load("doriarose.RData",doriarose)
+kirchherr <- new.env()
+load("kirchherr.RData",kirchherr)
+vangils <- new.env()
+load("vangils.RData",vangils)
+@ 
+
+<<>>=
+ls(envir=doriarose)
+@ 
+
+<<>>=
+with(doriarose,summary(hiv.bmds.prcomp))
+with(vangils,summary(hiv.bmds.prcomp))
+with(kirchherr,summary(hiv.bmds.prcomp))
+@ 
+
+Now I plot out the rotated ordinations for all three.
+
+<<ordmdsplot,fig=TRUE>>=
+postscript("othermaps.ps",width=7.5,height=10,paper="letter",horizontal=FALSE)
+pdf("othermaps.pdf",width=7.5,height=10,paper="letter")
+par(mfrow=c(3,1),font.lab=2)
+with(doriarose,
+     {plot(hiv.bmds.xmat.wgpa.rot,type="n",xlab="D1",ylab="D2",main="(a) Doria-Rose et al.",xlim=c(-7,7),ylim=c(-3,3));
+     points(x=hiv.bmds.xmat.wgpa.rot[1:20,1],y=hiv.bmds.xmat.wgpa.rot[1:20,2],pch=16,cex=0.75,col="blue");
+     points(x=hiv.bmds.xmat.wgpa.rot[21:123,1],y=hiv.bmds.xmat.wgpa.rot[21:123,2],pch=16,cex=0.75,col="red")}
+     )
+# Note that I make the x values negative, to maximise similarity between the maps
+with(kirchherr,
+     {plot(hiv.bmds.xmat.wgpa.rot,type="n",xlab="D1",ylab="D2",main="(b) Kirchherr et al.",xlim=c(-7,7),ylim=c(-1,1));
+     points(x=-hiv.bmds.xmat.wgpa.rot[1:60,1],y=hiv.bmds.xmat.wgpa.rot[1:60,2],pch=16,cex=0.75,col="blue");
+     points(x=-hiv.bmds.xmat.wgpa.rot[61:76,1],y=hiv.bmds.xmat.wgpa.rot[61:76,2],pch=16,cex=0.75,col="red")}
+     )
+with(vangils,
+     {plot(hiv.bmds.xmat.wgpa.rot,type="n",xlab="D1",ylab="D2",main="(c) Van Gils et al.",xlim=c(-7,7),ylim=c(-1,1));
+     points(x=hiv.bmds.xmat.wgpa.rot[1:28,1],y=hiv.bmds.xmat.wgpa.rot[1:28,2],pch=16,cex=0.75,col="blue");
+     points(x=hiv.bmds.xmat.wgpa.rot[29:63,1],y=hiv.bmds.xmat.wgpa.rot[29:63,2],pch=16,cex=0.75,col="red")}
+     )
+dev.off()
+@ 
+
+Need to check that viruses and sera are correctly labeled...
+
+Try ggplot2
+<<>>=
+d <- as.data.frame(with(kirchherr,hiv.bmds.xmat.wgpa$mshape))
+d$V1 <- -d$V1
+d$V3 <- c(rep("Virus",60),rep("Sera",16))
+p <- ggplot(d,aes(x=V1,y=V2))+coord_fixed(ratio=1)
+p <- p+scale_x_continuous(breaks=seq(-4,3),limits=c(-4,3))+scale_y_continuous(breaks=seq(-0.5,0.5),limits=c(-0.5,0.5))
+p <- p+theme(axis.title.x = element_blank(),axis.title.y = element_blank(),legend.position="none",axis.text.x = element_blank(),axis.text.y = element_blank(),axis.ticks = element_blank())
+#p <- p + stat_density2d(aes(fill=..level..),geom="polygon",alpha=0.5)
+for(i in 1:76){
+  d1 <- as.data.frame(t(with(kirchherr,hiv.bmds.xmat.wgpa$rotated[i,1:2,1:100])))
+  d1[,1] <- -d1[,1]
+  p <- p + stat_density2d(data=d1,aes(x=V1,y=V2,fill=..level..),geom="polygon",alpha=0.01)
+  #p <- p + stat_density2d(data=d1,aes(x=V1,y=V2,fill=..level..),geom="polygon",colour=cls[i])
+  #p <- p + stat_density2d(data=d1,aes(x=V1,y=V2),colour=cls[i])
+  #p <- p + stat_density2d(data=d1,aes(x=V1,y=V2,fill=..density..),geom="tile",contour=FALSE,colour=cls[i])
+}
+p <- p+geom_point(aes(colour=factor(V3)))+scale_colour_manual(values=c("blue","red"))
+pdf("kirchherrmap.pdf",width=8,height=2)
+p+facet_grid(V3 ~ .)
+dev.off()
+@
+
+<<>>=
+d <- as.data.frame(with(vangils,hiv.bmds.xmat.wgpa$mshape))
+d$V3 <- c(rep("Virus",28),rep("Sera",35)) # check
+p <- ggplot(d,aes(x=V1,y=V2))+coord_fixed(ratio=1)
+p <- p+scale_x_continuous(breaks=seq(-6,6),limits=c(-6,6))+scale_y_continuous(breaks=seq(-0.5,0.5),limits=c(-0.5,0.5))
+p <- p+theme(axis.title.x = element_blank(),axis.title.y = element_blank(),legend.position="none",axis.text.x = element_blank(),axis.text.y = element_blank(),axis.ticks = element_blank())
+#p <- p + stat_density2d(aes(fill=..level..),geom="polygon",alpha=0.5)
+for(i in 1:63){
+  d1 <- as.data.frame(t(with(vangils,hiv.bmds.xmat.wgpa$rotated[i,1:2,1:100])))
+  p <- p + stat_density2d(data=d1,aes(x=V1,y=V2,fill=..level..),geom="polygon",alpha=0.01)
+  #p <- p + stat_density2d(data=d1,aes(x=V1,y=V2,fill=..level..),geom="polygon",colour=cls[i])
+  #p <- p + stat_density2d(data=d1,aes(x=V1,y=V2),colour=cls[i])
+  #p <- p + stat_density2d(data=d1,aes(x=V1,y=V2,fill=..density..),geom="tile",contour=FALSE,colour=cls[i])
+}
+p <- p+geom_point(aes(colour=factor(V3)))+scale_colour_manual(values=c("blue","red"))
+pdf("vangilsmap.pdf",width=10,height=2)
+p+facet_grid(V3 ~ .)
+dev.off()
+@
+
+this doesn't seem to be working like last time...difft results than those I got using JAGS a bit ago...
+
+<<>>=
+d <- as.data.frame(with(doriarose,hiv.bmds.xmat.wgpa$mshape))
+d$V3 <- c(rep("Sera",103),rep("Virus",20))
+p <- ggplot(d,aes(x=V1,y=V2))+scale_x_continuous(breaks=seq(-4,5),limits=c(-4,5))+scale_y_continuous(breaks=c(-0.5,0.5),limits=c(-0.5,0.5))+coord_fixed(ratio=1)+theme(axis.title.x = element_blank(),axis.title.y = element_blank(),legend.position="none",axis.text.x = element_blank(),axis.text.y = element_blank(),axis.ticks = element_blank())
+#p <- p + stat_density2d(aes(fill=..level..),geom="polygon",alpha=0.5)
+for(i in 1:123){
+  d1 <- as.data.frame(t(with(doriarose,hiv.bmds.xmat.wgpa$rotated[i,1:2,1:100])))
+  p <- p + stat_density2d(data=d1,aes(x=V1,y=V2,fill=..level..),geom="polygon",alpha=0.01)
+  #p <- p + stat_density2d(data=d1,aes(x=V1,y=V2,fill=..level..),geom="polygon",colour=cls[i])
+  #p <- p + stat_density2d(data=d1,aes(x=V1,y=V2),colour=cls[i])
+  #p <- p + stat_density2d(data=d1,aes(x=V1,y=V2,fill=..density..),geom="tile",contour=FALSE,colour=cls[i])
+}
+p <- p+geom_point(aes(colour=factor(V3)))+scale_colour_manual(values=c("blue","red"))
+pdf("doriamap.pdf",width=8,height=2)
+p+facet_grid(V3 ~ .)
+dev.off()
+@

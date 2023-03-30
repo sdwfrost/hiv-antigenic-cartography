@@ -1,0 +1,332 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fullpage}
+
+\begin{document}
+
+\section{Data loading and processing}
+
+First, I source the code for the functions.
+
+<<loadmdsfuns>>=
+source("mds.R")
+@ 
+
+<<loadlibraries>>=
+require(rjags)
+#require(shapes)
+require(plotrix)
+#require(seqinr)
+@ 
+
+I now define a new matplot function (from plotrix) that makes a prettier plot. I can't remember exactly what I changed, but it does the job.
+
+<<defmymatplot>>=
+mymatplot <- function (x, redrange = c(0, 1), greenrange = c(0, 1), bluerange = c(0, 
+    1), extremes = NA, cellcolors = NA, show.legend = FALSE, 
+    nslices = 10, xlab = "Column", ylab = "Row", do.hex = FALSE, 
+    axes = TRUE, show.values = FALSE, vcol = "white", vcex = 1, 
+    border = "black", na.color = NA, values = NA, ...) 
+{
+    if (is.matrix(x) || is.data.frame(x)) {
+        xdim <- dim(x)
+        if (is.data.frame(x)) 
+            x <- unlist(x)
+        else x <- as.vector(x)
+        oldpar <- par("xaxs", "yaxs", "xpd", "mar")
+        par(xaxs = "i", yaxs = "i")
+        if (do.hex) 
+            par(mar = c(5, 4, 4, 4))
+        plot(c(0, xdim[2]), c(0, xdim[1]), xlab = xlab, ylab = ylab, 
+            type = "n", axes = FALSE, ...)
+        oldpar$usr <- par("usr")
+        if (!do.hex) {
+            box()
+            pos <- 0
+        }
+        else pos <- -0.3
+        if (axes) {
+            xticks <- pretty(0:xdim[2])[-1]
+            axis(1, at = xticks - 0.5, labels = xticks, pos = pos)
+            yticks <- pretty(0:xdim[1])[-1]
+            axis(2, at = xdim[1] - yticks + 0.5, yticks)
+        }
+        if (all(is.na(cellcolors))) 
+            cellcolors <- color.scale(x, redrange, greenrange, 
+                bluerange, extremes, na.color)
+        if (do.hex) {
+            par(xpd = TRUE)
+            offset <- 0
+            if (length(border) < xdim[1] * xdim[2]) 
+                border <- rep(border, length.out = xdim[1] * 
+                  xdim[2])
+            for (row in 1:xdim[1]) {
+                for (column in 0:(xdim[2] - 1)) {
+                  hexagon(column + offset, xdim[1] - row, col = cellcolors[row + 
+                    xdim[1] * column], border = border[row + 
+                    xdim[1] * column])
+                  if (show.values){
+                    if(is.na(values)){
+                    text(column + offset + 0.5, xdim[1] - row + 
+                      0.5, x[row + column * xdim[1]], col = vcol, 
+                      cex = vcex)
+                  }
+                    else{
+                      text(column + offset + 0.5, xdim[1] - row + 
+                      0.5, values, col = vcol, 
+                      cex = vcex)
+                    }
+                  }
+                }
+                offset <- ifelse(offset, 0, 0.5)
+            }
+            par(xpd = FALSE)
+        }
+        else {
+            rect(sort(rep((1:xdim[2]) - 1, xdim[1])), rep(seq(xdim[1] - 
+                1, 0, by = -1), xdim[2]), sort(rep(1:xdim[2], 
+                xdim[1])), rep(seq(xdim[1], 1, by = -1), xdim[2]), 
+                col = cellcolors, border = border)
+            if (show.values){
+              if(is.na(values)){
+                text(sort(rep((1:xdim[2]) - 0.5, xdim[1])), rep(seq(xdim[1] - 
+                  0.5, 0, by = -1), xdim[2]), round(x, show.values), 
+                  col = vcol, cex = vcex)
+              }
+              else{
+                text(sort(rep((1:xdim[2]) - 0.5, xdim[1])), rep(seq(xdim[1] - 
+                  0.5, 0, by = -1), xdim[2]), values, 
+                  col = vcol, cex = vcex)
+              }
+              }
+        }
+        naxs <- which(is.na(x))
+        xy <- par("usr")
+        plot.din <- par("din")
+        plot.pin <- par("pin")
+        bottom.gap <- (xy[3] - xy[4]) * (plot.din[2] - plot.pin[2])/(2 * 
+            plot.pin[2])
+        grx1 <- xy[1]
+        gry1 <- bottom.gap * 0.95
+        grx2 <- xy[1] + (xy[2] - xy[1])/4
+        gry2 <- bottom.gap * 0.8
+        if (length(cellcolors) > 1) {
+            colmat <- col2rgb(c(cellcolors[which.min(x)], cellcolors[which.max(x)]))
+            redrange <- colmat[1, ]/255
+            greenrange <- colmat[2, ]/255
+            bluerange <- colmat[3, ]/255
+        }
+        rect.col <- color.scale(1:nslices, redrange, greenrange, 
+            bluerange)
+        if (show.legend) 
+            color.legend(grx1, gry1, grx2, gry2, round(range(x, 
+                na.rm = TRUE), show.legend), rect.col = rect.col)
+        par(oldpar)
+    }
+    else cat("x must be a data frame or matrix\n")
+}
+@ 
+
+I now read in the data.
+
+<<readhivdata>>=
+hiv1 <- read.csv("vangils1.csv",header=T,row.names=1)
+hiv2 <- read.table("vangils2.csv",header=T,row.names=1,sep="\t")
+hiv3 <- read.table("vangils3.csv",header=T,row.names=1,sep="\t")
+hiv <- cbind(hiv1,hiv2,hiv3)
+hiv.names <- row.names(hiv)
+sera.names <- names(hiv)
+hiv.subtypes <- c(rep("A",5),rep("B",6),rep("C",7),rep("D",5),rep("Reference B",5))
+@ 
+
+I now generate the files needed for the matrix plot.
+
+<<fig=TRUE>>=
+hivfigmat <- readneut(hiv,logtransform=FALSE)$d
+hmmat <- log2(hivfigmat)
+hm <- heatmap(hmmat)
+hivfigmat2 <- hivfigmat[hm$rowInd,hm$colInd]
+hiv.names2 <- hiv.names[hm$rowInd]
+hiv.subtypes2 <- c(hiv.subtypes[c(hm$rowInd)])
+sera.names2 <- sera.names[hm$colInd]
+vals <- hiv[hm$rowInd,hm$colInd]
+vals <- gsub(" ","",as.vector(apply(vals,2,as.character)))
+vals <- unlist(lapply(strsplit(vals,".",fixed=TRUE),"[",1))
+matcols <- heat.colors(6)
+x <- hivfigmat2
+tabsize <- dim(x)
+cellcol<-matrix(rep("gray",tabsize[1]*tabsize[2]),nrow=tabsize[1])
+#cellcol[x>20&x<50]<- matcols[5]
+cellcol[x>40&x<100] <- matcols[4]
+cellcol[x>=100&x<200] <- matcols[3]
+cellcol[x>=200&x<500] <- matcols[2]
+cellcol[x>=500&x<1000] <- matcols[1]
+cellcol[x>=1000] <- "black"
+cellcol[is.na(x)] <- "white"
+pdf("vangilstable.pdf",width=20,height=12)
+par(mar=c(5,7,5,7))
+mymatplot(x,cellcolors=cellcol,show.legend=FALSE,show.values=TRUE,border=TRUE,axes=F,xlab="",ylab="",values=vals)
+axis(1,at=seq(1,35)-0.5,labels=gsub("X","",sera.names2),las=2,cex=0.6)
+axis(2,at=seq(28,1,by=-1)-0.5,labels=hiv.names2,las=1,cex=0.6)
+axis(4,at=seq(28,1,by=-1)-0.5,labels=hiv.subtypes2,las=1,cex=0.6)
+mtext("Sera",3,line=1,cex=1.0,font=2)
+#mtext("Virus",4,line=1,cex=1.0,font=2)
+dev.off()
+@ 
+
+<<prepdata>>=
+hivmat <- readneut(hiv,logtransform=TRUE)
+hivdat <- prepdata(hivmat)
+hivdat.orig <- hivdat # Handy as JAGS overwrites the data passed to it
+@ 
+
+
+I now set up the censoring and the autologous (reference) virus/sera combinations. As there are ND measurements, I have to normalize using a special function.
+
+<<>>=
+mymax <- function(x){
+  x <- na.omit(x)
+  max(x)
+}
+@ 
+
+<<setupdata>>=
+eps <- 0.00001
+hivdat <- prepdata(hivmat)
+#hivdat$d[hivdat$d>log2(1000)] <- NA # Exclude the high values, which are probably outliers
+hivdat.max <- rep(apply(hivmat$d,2,mymax),each=dim(hivmat$d)[1])
+hivdat$d <- -(hivdat$d-hivdat.max) # Careful! I overwrite d here...can cause funniness
+hivdat.nocen <- hivdat[c(-2,-3)] # This removes the variables associated with censoring
+hivdat$lod[,1] <- rep(-eps,hivdat$M) # This seems odd as the maximum is zero, which differs for different sera. Hence, the 'upper' lod is actually the lower lod, and the upper lod differs for everyone
+#hivdat$lod[,2] <- hivdat.max-as.vector(hivmat$lt)+eps # doesn't work as some columns don't have lod
+hivdat$lod[,2] <- hivdat.max-log2(40)+eps
+hivdat$lod[is.na(hivdat$lod[,1]),1] <- min(na.omit(hivdat$lod))
+hivdat$lod[is.na(hivdat$lod[,2]),2] <- max(na.omit(hivdat$lod))
+hivdat$cen[hivdat$cen==0] <- 2
+hivdat.orig <- hivdat
+hivdat.dinit <- hivdat.max
+hivdat.dinit[hivdat$cen==1] <- NA
+hivdat.inits <- list(d=hivdat.dinit,RNG.name="base::Mersenne-Twister",.RNG.seed=1)
+@ 
+
+\section{Model fitting with JAGS}
+
+I can now fit BMDS to the HIV data. I need to check that all the indexing is working OK.
+
+First, with no censoring.
+
+<<hivnocenbmds>>=
+hiv.nocen.bmds <- jags.model('bmds.nonorm.nocen.bug',data=hivdat.nocen,n.chains=1,n.adapt=1000)
+update(hiv.nocen.bmds,n.iter=1000)
+hiv.nocen.bmds.samples <- jags.samples(hiv.nocen.bmds,variable.names=c("delta","x1","x2","y1","y2","tau.d","tau.x0","d"),n.iter=10000,thin=10)
+hiv.nocen.bmds.samples.mcmclist <- lapply(hiv.nocen.bmds.samples,as.mcmc.list) 
+@ 
+
+<<hivbmds>>=
+#dinit <- as.double(hiv.nocen.bmds.samples.mcmclist$d[1000,][[1]])
+dinit <- rep(10,length(hivdat$d))
+dinit[hivdat$cen==1] <- NA
+hiv.bmds <- jags.model('bmds.nonorm.bug',data=hivdat,inits=list(d=dinit),n.chains=1,n.adapt=1000)
+update(hiv.bmds,n.iter=1000)
+hiv.bmds.samples <- jags.samples(hiv.bmds,variable.names=c("delta","x1","x2","y1","y2","tau.d","tau.x0","d"),n.iter=10000,thin=10)
+hiv.bmds.samples.mcmclist <- lapply(hiv.bmds.samples,as.mcmc.list) 
+@ 
+
+Need to monitor deviance as well, ideally, as another check on convergence. I probably also need to include a uniform prior.
+
+I fit BPCA; need to check this; the mixture of ND and LOD measurements makes life tricky.
+
+<<hivbpca>>=
+hivdat.bpca <- prepdata(hivmat)
+hivdat.bpca$lod[,2] <- hivdat.max+eps
+hivdat.bpca$lod[,1] <- rep(log2(40)-eps,hivdat.bpca$M)
+dinit <- rep(log2(40)-2*eps,length(hivdat.bpca$d))
+dinit[hivdat.bpca$cen==1] <-  NA # censored measurements
+dinit[c(52,56,80,81,84,112,352,924)] <- log2(40) # ND measurements
+hivdat.bpca.inits <- list(d=dinit,.RNG.name="base::Mersenne-Twister",.RNG.seed=1)
+hiv.bpca <- jags.model('bpca.bug',data=hivdat.bpca,inits=hivdat.bpca.inits,n.chains=1,n.adapt=1000)
+update(hiv.bpca,n.iter=1000)
+hiv.bpca.samples <- jags.samples(hiv.bpca,variable.names=c("mu","x","W","tau.y","tau.W"),n.iter=10000,thin=10)
+hiv.bpca.samples.mcmclist <- lapply(hiv.bpca.samples,as.mcmc.list)
+@ 
+
+\section{Output processing}
+
+I now extract the coordinates and align using unweighted and weighted GPA.
+
+<<mapdatabmds,fig=TRUE>>=
+hiv.nocen.bmds.xmat <- mapdata.mds(hivdat.orig,hiv.nocen.bmds.samples.mcmclist,seq(1,1000,by=10))
+require(shapes)
+hiv.nocen.bmds.xmat.gpa <- procGPA(hiv.nocen.bmds.xmat)
+hiv.nocen.bmds.xmat.wgpa <- procWGPA(hiv.nocen.bmds.xmat,fixcovmatrix=FALSE,initial="Identity",maxiterations=100,scale=FALSE,prior="Exponential",diagonal=TRUE,sampleweights="Equal")
+@  
+
+<<mapdatabmds,fig=TRUE>>=
+hiv.bmds.xmat <- mapdata.mds(hivdat.orig,hiv.bmds.samples.mcmclist,seq(1,1000,by=10))
+hiv.bmds.xmat.gpa <- procGPA(hiv.bmds.xmat)
+hiv.bmds.xmat.wgpa <- procWGPA(hiv.bmds.xmat,fixcovmatrix=FALSE,initial="Identity",maxiterations=100,scale=FALSE,prior="Exponential",diagonal=TRUE,sampleweights="Equal")
+@  
+
+I obtain ordinations for BPCA.
+
+<<mapdatabpca,fig=TRUE>>=
+hiv.bpca.xmat <- mapdata.pca(hivdat.orig,hiv.bpca.samples.mcmclist,seq(1,1000,by=10))
+hiv.bpca.xmat.gpa <- procGPA(hiv.bpca.xmat)
+hiv.bpca.xmat.wgpa <- procWGPA(hiv.bpca.xmat,fixcovmatrix=FALSE,initial="Identity",maxiterations=100,scale=FALSE,prior="Exponential",diagonal=TRUE,sampleweights="Equal")
+@ 
+
+<<fig=TRUE>>=
+plot(hiv.nocen.bmds.xmat.wgpa$mshape,type="n")
+text(hiv.nocen.bmds.xmat.wgpa$mshape)
+@ 
+
+Need to fix such that variances are sorted?
+
+<<fig=TRUE>>=
+plot(hiv.bmds.xmat.wgpa$mshape,type="n")
+text(hiv.bmds.xmat.wgpa$mshape)
+@ 
+
+<<fig=TRUE>>=
+plot(hiv.bpca.xmat.gpa$mshape,type="n")
+text(hiv.bpca.xmat.gpa$mshape)
+@ 
+
+Need to correlate antigenic distance with genetic distance.
+
+<<fig=TRUE>>=
+plot(hiv.bmds.samples.mcmclist$delta[1000,][[1]]~hiv.bmds.samples.mcmclist$d[1000,][[1]],xlab="d",ylab="delta",main="Normal")
+abline(0,1,lty=3)
+@ 
+
+\section{Comparison of ordinations} 
+
+I compare the MDS solutions for the viruses visually. I rotate the ordinations so that the major variation is on the x axis.
+
+<<calcpcarotations>>=
+hiv.bmds.prcomp <- prcomp(hiv.bmds.xmat.wgpa$mshape,scale=FALSE,retx=TRUE)
+@ 
+
+Now I calculated the rotated matrices.
+
+<<generaterotatedxmat>>=
+hiv.bmds.xmat.wgpa.rot <- hiv.bmds.prcomp$x
+@ 
+
+Now I plot out the rotated ordinations.
+
+<<ordmdsplot,fig=TRUE>>=
+par(pty="s",font.lab=2)
+mycols <- rainbow(5)
+plot(hiv.bmds.xmat.wgpa.rot,type="n",xlab="D1",ylab="D2",main="BMDS (normal prior)")
+text(x=hiv.bmds.xmat.wgpa.rot[1:28,1],y=hiv.bmds.xmat.wgpa.rot[1:28,2],labels=hiv.subtypes,cex=0.75,col="blue")
+#points(x=hiv.bmds.xmat.wgpa.rot[1:23,1],y=hiv.bmds.xmat.wgpa.rot[1:23,2],pch=1,cex=0.75,col=mycols[as.integer(as.factor(hiv.subtypes))[1:23]])
+text(x=hiv.bmds.xmat.wgpa.rot[29:63,1],y=hiv.bmds.xmat.wgpa.rot[29:63,2],labels=names(hiv),cex=0.75,col="red")
+@ 
+
+The above shows a bit of virus clustering for the subtype Bs. I should repeat with no reference Bs..
+
+Now save data.
+
+<<>>=
+save.image(file="vangils.RData")
+@ 

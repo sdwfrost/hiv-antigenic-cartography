@@ -1,0 +1,217 @@
+% This file was created with JabRef 2.9.2.
+% Encoding: UTF-8
+
+@ARTICLE{Doria-Rose2010,
+  author = {Doria-Rose, Nicole A. and Klein, Rachel M. and Daniels, Marcus G.
+	and O'Dell, Sijy and Nason, Martha and Lapedes, Alan and Bhattacharya,
+	Tanmoy and Migueles, Stephen A. and Wyatt, Richard T. and Korber,
+	Bette T. and Mascola, John R. and Connors, Mark},
+  title = {Breadth of human immunodeficiency virus-specific neutralizing activity
+	in sera: clustering analysis and association with clinical variables.},
+  journal = {J Virol},
+  year = {2010},
+  volume = {84},
+  pages = {1631--1636},
+  number = {3},
+  month = {Feb},
+  abstract = {Induction of antibodies that neutralize a broad range of human immunodeficiency
+	virus type 1 (HIV-1) isolates is a major goal of vaccine development.
+	To study natural examples of broad neutralization, we analyzed sera
+	from 103 HIV-1-infected subjects. Among progressor patients, 20\%
+	of sera neutralized more than 75\% of a panel of 20 diverse viral
+	isolates. Little activity was observed in sera from long-term nonprogressors
+	(elite controllers). Breadth of neutralization was correlated with
+	viral load, but not with CD4 count, history of past antiretroviral
+	use, age, gender, race/ethnicity, or route of exposure. Clustering
+	analysis of sera by a novel method identified a statistically robust
+	subgrouping of sera that demonstrated broad and potent neutralization
+	activity.},
+  doi = {10.1128/JVI.01482-09},
+  institution = {Laboratory of Immunoregulation, National Institute of Allergy and
+	Infectious Diseases, National Institutes of Health, Bethesda, Maryland
+	20892, USA.},
+  keywords = {Antibodies, Neutralizing, blood/immunology; Cluster Analysis; HIV
+	Infections, immunology/virology; HIV Long-Term Survivors; HIV-1,
+	immunology; Humans},
+  language = {eng},
+  medline-pst = {ppublish},
+  owner = {simon},
+  pii = {JVI.01482-09},
+  pmid = {19923174},
+  timestamp = {2013.06.15},
+  url = {http://dx.doi.org/10.1128/JVI.01482-09}
+}
+
+@ARTICLE{Kirchherr2011,
+  author = {Kirchherr, Jennifer L. and Hamilton, Jennifer and Lu, Xiaozhi and
+	Gnanakaran, S. and Muldoon, Mark and Daniels, Marcus and Kasongo,
+	Webster and Chalwe, Victor and Mulenga, Chanda and Mwananyanda, Lawrence
+	and Musonda, Rosemary M. and Yuan, Xing and Montefiori, David C.
+	and Korber, Bette T. and Haynes, Barton F. and Gao, Feng},
+  title = {Identification of amino acid substitutions associated with neutralization
+	phenotype in the human immunodeficiency virus type-1 subtype C gp120.},
+  journal = {Virology},
+  year = {2011},
+  volume = {409},
+  pages = {163--174},
+  number = {2},
+  month = {Jan},
+  abstract = {Neutralizing antibodies (Nabs) are thought to play an important role
+	in prevention and control of HIV-1 infection and should be targeted
+	by an AIDS vaccine. It is critical to understand how HIV-1 induces
+	Nabs by analyzing viral sequences in both tested viruses and sera.
+	Neutralization susceptibility to antibodies in autologous and heterologous
+	plasma was determined for multiple Envs (3-6) from each of 15 subtype-C-infected
+	individuals. Heterologous neutralization was divided into two distinct
+	groups: plasma with strong, cross-reactive neutralization (n=9) and
+	plasma with weak neutralization (n=6). Plasma with cross-reactive
+	heterologous Nabs also more potently neutralized contemporaneous
+	autologous viruses. Analysis of Env sequences in plasma from both
+	groups revealed a three-amino-acid substitution pattern in the V4
+	region that was associated with greater neutralization potency and
+	breadth. Identification of such potential neutralization signatures
+	may have important implications for the development of HIV-1 vaccines
+	capable of inducing Nabs to subtype C HIV-1.},
+  doi = {10.1016/j.virol.2010.09.031},
+  institution = {Duke Human Vaccine Institute, Duke University Medical Center, Durham,
+	NC 27710, USA.},
+  keywords = {Adult; Amino Acid Substitution, genetics; Antibodies, Neutralizing,
+	immunology; Cross Reactions; Epitopes, genetics/immunology; Female;
+	HIV Antibodies, immunology; HIV Envelope Protein gp120, genetics/immunology;
+	HIV-1, genetics/immunology; Humans; Male; Middle Aged; Molecular
+	Sequence Data; Neutralization Tests; Sequence Analysis, DNA},
+  language = {eng},
+  medline-pst = {ppublish},
+  owner = {simon},
+  pii = {S0042-6822(10)00632-X},
+  pmid = {21036380},
+  timestamp = {2013.06.15},
+  url = {http://dx.doi.org/10.1016/j.virol.2010.09.031}
+}
+
+@ARTICLE{Oh2001,
+  author = {Oh, Man-Suk and Raftery, Adrian E},
+  title = {Bayesian multidimensional scaling and choice of dimension},
+  journal = {Journal of the American Statistical Association},
+  year = {2001},
+  volume = {96},
+  pages = {1031--1044},
+  number = {455},
+  owner = {simon},
+  publisher = {Taylor \& Francis},
+  timestamp = {2013.06.16}
+}
+
+@ARTICLE{Ping2013,
+  author = {Ping, Li-Hua and Joseph, Sarah B. and Anderson, Jeffrey A. and Abrahams,
+	Melissa-Rose and Salazar-Gonzalez, Jesus F. and Kincer, Laura P.
+	and Treurnicht, Florette K. and Arney, Leslie and Ojeda, Suany and
+	Zhang, Ming and Keys, Jessica and Potter, E Lake and Chu, Haitao
+	and Moore, Penny and Salazar-Gonzalez, Maria and Iyer, Shilpa and
+	Jabara, Cassandra and Kirchherr, Jennifer and Mapanje, Clement and
+	Ngandu, Nobubelo and Seoighe, Cathal and Hoffman, Irving and Gao,
+	Feng and Tang, Yuyang and Labranche, Celia and Lee, Benhur and Saville,
+	Andrew and Vermeulen, Marion and Fiscus, Susan and Morris, Lynn and
+	{Abdool Karim}, Salim and Haynes, Barton F. and Shaw, George M. and
+	Korber, Bette T. and Hahn, Beatrice H. and Cohen, Myron S. and Montefiori,
+	David and Williamson, Carolyn and Swanstrom, Ronald and , for the
+	C. A. P. R. I. S. A Acute Infection Study the Center for H. I. V-A.
+	I. D. S Vaccine Immunology Consortium},
+  title = {Comparison of Viral Env Proteins From Acute and Chronic Infections
+	of Subtype C Human Immunodeficiency Virus Type 1 Identifies Differences
+	In Glycosylation and CCR5 Utilization and Suggests A New Strategy
+	For Immunogen Design.},
+  journal = {J Virol},
+  year = {2013},
+  month = {Apr},
+  __markedentry = {[simon:]},
+  abstract = {Understanding human immunodeficiency virus type 1 (HIV-1) transmission
+	is central to developing effective prevention strategies, including
+	a vaccine. We compared phenotypic and genetic variation in HIV-1
+	env genes from subjects in acute/early infection to subjects with
+	chronic infections in the context of subtype C heterosexual transmission.
+	We found that the transmitted viruses all used CCR5 and required
+	high levels of CD4 to infect target cells, suggesting selection for
+	replication in T cells after transmission and not macrophages. In
+	addition, the transmitted viruses were more likely to use a maraviroc-sensitive
+	conformation of CCR5, perhaps identifying a feature of the target
+	T cell. We confirmed an earlier observation that the transmitted
+	viruses were on average modestly under-glycosylated relative to the
+	viruses from chronically infected subjects. This difference was most
+	pronounced in comparing the viruses in acutely infected men to those
+	in chronically infected women. These features of the transmitted
+	virus point to selective pressures during the transmission event.
+	We did not observe a consistent difference in heterologous neutralization
+	sensitivity between the two groups, or in sensitivity to soluble
+	CD4, suggesting similar conformations between viruses from acute
+	and chronic infection. However, the presence or absence of glycosylation
+	sites had differential effects on neutralization sensitivity for
+	different antibodies. We suggest that the occasional absence of glycosylation
+	sites encoded in the conserved regions of env, further reduced in
+	transmitted viruses, could expose specific surface structures on
+	the protein as antibody targets.},
+  institution = {UNC Center for AIDS Research, University of North Carolina at Chapel
+	Hill, Chapel Hill, North Carolina USA.},
+  language = {eng},
+  medline-pst = {aheadofprint},
+  owner = {simon},
+  pmid = {23616655},
+  timestamp = {2013.06.15}
+}
+
+@ARTICLE{vanGils2010,
+  author = {{van Gils}, Marit J. and Edo-Matas, Diana and Schweighardt, Becky
+	and Wrin, Terri and Schuitemaker, Hanneke},
+  title = {High prevalence of neutralizing activity against multiple unrelated
+	human immunodeficiency virus type 1 (HIV-1) subtype B variants in
+	sera from HIV-1 subtype B-infected individuals: evidence for subtype-specific
+	rather than strain-specific neutralizing activity.},
+  journal = {J Gen Virol},
+  year = {2010},
+  volume = {91},
+  pages = {250--258},
+  number = {Pt 1},
+  month = {Jan},
+  abstract = {It is assumed that an effective human immunodeficiency virus type
+	1 (HIV-1) vaccine should be capable of eliciting neutralizing antibodies.
+	However, even the best antibodies known to date lack neutralizing
+	ability against a significant proportion of primary HIV-1 variants
+	and, despite great efforts, still no immunogen is available that
+	can elicit humoral immunity which is protective against infection
+	or disease progression. We tested sera from 35 participants in the
+	Amsterdam Cohort Studies on HIV-1 infection, who were all infected
+	with HIV-1 subtype B and therapy-naïve at the time of sampling, for
+	neutralizing activity against a panel of 23 tier 2-3 HIV-1 variants,
+	with a minimum of five HIV-1 variants per subtype (A, B, C and D).
+	Strong cross-clade neutralizing activity was detected in sera from
+	seven individuals. Strikingly, sera from 22 of 35 individuals (63\%)
+	neutralized three or more of the six tier 2-3 HIV-1 subtype B viruses
+	in the panel. There was a strong correlation between neutralization
+	titre and breadth in serum. Indeed, the IC(50) of sera with strong
+	cross-clade neutralizing activity was significantly higher than the
+	IC(50) of sera with cross-subtype B activity, which, in turn, had
+	a higher IC(50) than sera with the lowest neutralization breadth.
+	These results imply that humoral immunity, at least in HIV-1 subtype
+	B-infected individuals, is often subtype-specific rather than strain-specific
+	and that the breadth of neutralization is correlated with the titre
+	of neutralizing activity in serum. Considering the difficulties in
+	designing a vaccine that is capable of eliciting cross-clade neutralizing
+	activity, subtype-specific vaccines may be explored as an interesting
+	alternative.},
+  doi = {10.1099/vir.0.015693-0},
+  institution = {Department of Experimental Immunology, Landsteiner Laboratory Sanquin
+	Research, Academic Medical Center at the University of Amsterdam,
+	Amsterdam, The Netherlands.},
+  keywords = {Antibodies, Neutralizing, blood/immunology; Cross Reactions; HIV Antibodies,
+	blood/immunology; HIV Infections, immunology; HIV-1, immunology;
+	Humans; Inhibitory Concentration 50; Netherlands; Neutralization
+	Tests},
+  language = {eng},
+  medline-pst = {ppublish},
+  owner = {simon},
+  pii = {vir.0.015693-0},
+  pmid = {19793903},
+  timestamp = {2013.06.15},
+  url = {http://dx.doi.org/10.1099/vir.0.015693-0}
+}
+

@@ -1,0 +1,18 @@
+
+model{
+  for(i in 1:M){
+       cen[i] ~ dinterval(d[i],lod[i,1:2])
+       d[i] ~ dnorm(delta[i],tau.d)T(0,)
+       delta[i] <- sqrt(pow(x1[rw[i]],2)+pow(x2[rw[i]],2)+pow(y1[cl[i]],2)+pow(y2[cl[i]],2)-2*(x1[rw[i]]*y1[cl[i]]+x2[rw[i]]*y2[cl[i]]))
+  }
+  for(i in 1:N1){
+       x1[i] ~ dunif(-z,z)
+       x2[i] ~ dunif(-z,z)
+  }
+  for(i in 1:N2){
+       y1[i] ~ dunif(-z,z)
+       y2[i] ~ dunif(-z,z)
+  }
+  tau.d ~ dgamma(0.01,0.01)
+}
+

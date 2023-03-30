@@ -1,0 +1,39 @@
+<<>>=
+doriarose <- new.env()
+load("doriarose.RData",doriarose)
+kirchherr <- new.env()
+load("kirchherr.RData",kirchherr)
+vangils <- new.env()
+load("vangils.RData",vangils)
+@ 
+
+<<>>=
+ls(envir=doriarose)
+@ 
+
+Now I plot out the rotated ordinations for all three.
+
+<<ordmdsplot,fig=TRUE>>=
+postscript("othermaps.ps",width=7.5,height=10,paper="letter",horizontal=FALSE)
+pdf("othermaps.pdf",width=7.5,height=10,paper="letter")
+par(mfrow=c(3,1),font.lab=2)
+with(doriarose,
+     {plot(hiv.bmds.xmat.wgpa.rot,type="n",xlab="D1",ylab="D2",main="(a) Doria-Rose et al.",xlim=c(-7,7),ylim=c(-3,3));
+     points(x=hiv.bmds.xmat.wgpa.rot[1:20,1],y=hiv.bmds.xmat.wgpa.rot[1:20,2],pch=16,cex=0.75,col="blue");
+     points(x=hiv.bmds.xmat.wgpa.rot[21:123,1],y=hiv.bmds.xmat.wgpa.rot[21:123,2],pch=16,cex=0.75,col="red")}
+     )
+# Note that I make the x values negative, to maximise similarity between the maps
+with(kirchherr,
+     {plot(hiv.bmds.xmat.wgpa.rot,type="n",xlab="D1",ylab="D2",main="(b) Kirchherr et al.",xlim=c(-7,7),ylim=c(-1,1));
+     points(x=-hiv.bmds.xmat.wgpa.rot[1:60,1],y=hiv.bmds.xmat.wgpa.rot[1:60,2],pch=16,cex=0.75,col="blue");
+     points(x=-hiv.bmds.xmat.wgpa.rot[61:76,1],y=hiv.bmds.xmat.wgpa.rot[61:76,2],pch=16,cex=0.75,col="red")}
+     )
+with(vangils,
+     {plot(hiv.bmds.xmat.wgpa.rot,type="n",xlab="D1",ylab="D2",main="(c) Van Gils et al.",xlim=c(-7,7),ylim=c(-1,1));
+     points(x=hiv.bmds.xmat.wgpa.rot[1:28,1],y=hiv.bmds.xmat.wgpa.rot[1:28,2],pch=16,cex=0.75,col="blue");
+     points(x=hiv.bmds.xmat.wgpa.rot[29:63,1],y=hiv.bmds.xmat.wgpa.rot[29:63,2],pch=16,cex=0.75,col="red")}
+     )
+dev.off()
+@ 
+
+Need to check that viruses and sera are correctly labeled...

@@ -1,0 +1,656 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{Georgiev2013a}{article}{}
+  \name{author}{25}{}{%
+    {{}%
+     {Georgiev}{G.}%
+     {Ivelin~S.}{I.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Doria-Rose}{D.-R.}%
+     {Nicole~A.}{N.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhou}{Z.}%
+     {Tongqing}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kwon}{K.}%
+     {Young~Do}{Y.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Staupe}{S.}%
+     {Ryan~P.}{R.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Moquin}{M.}%
+     {Stephanie}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chuang}{C.}%
+     {Gwo-Yu}{G.-Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Louder}{L.}%
+     {Mark~K.}{M.~K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schmidt}{S.}%
+     {Stephen~D.}{S.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Altae-Tran}{A.-T.}%
+     {Han~R.}{H.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bailer}{B.}%
+     {Robert~T.}{R.~T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McKee}{M.}%
+     {Krisha}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nason}{N.}%
+     {Martha}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {O'Dell}{O.}%
+     {Sijy}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ofek}{O.}%
+     {Gilad}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pancera}{P.}%
+     {Marie}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Srivatsan}{S.}%
+     {Sanjay}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shapiro}{S.}%
+     {Lawrence}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Connors}{C.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Migueles}{M.}%
+     {Stephen~A.}{S.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Morris}{M.}%
+     {Lynn}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nishimura}{N.}%
+     {Yoshiaki}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Martin}{M.}%
+     {Malcolm~A.}{M.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mascola}{M.}%
+     {John~R.}{J.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kwong}{K.}%
+     {Peter~D.}{P.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Animals; Antibodies, Neutralizing, blood/immunology; Epitope Mapping;
+  HIV Antibodies, blood/immunology; HIV Infections, blood/immunology; HIV-1,
+  immunology/isolation /&/ purification; Humans; Immunodominant Epitopes,
+  chemistry/immunology; Macaca; Neutralization Tests; Protein Conformation;
+  Serum, immunology}
+  \strng{namehash}{GIS+1}
+  \strng{fullhash}{GISDRNAZTKYDSRPMSCGYLMKSSDATHRBRTMKNMOSOGPMSSSLCMMSAMLNYMMAMJRKPD1}
+  \field{abstract}{%
+  Serum characterization and antibody isolation are transforming our
+  understanding of the humoral immune response to viral infection. Here, we
+  show that epitope specificities of HIV-1-neutralizing antibodies in serum can
+  be elucidated from the serum pattern of neutralization against a diverse
+  panel of HIV-1 isolates. We determined "neutralization fingerprints" for 30
+  neutralizing antibodies on a panel of 34 diverse HIV-1 strains and showed
+  that similarity in neutralization fingerprint correlated with similarity in
+  epitope. We used these fingerprints to delineate specificities of polyclonal
+  sera from 24 HIV-1-infected donors and a chimeric siman-human
+  immunodeficiency virus-infected macaque. Delineated specificities matched
+  published specificities and were further confirmed by antibody isolation for
+  two sera. Patterns of virus-isolate neutralization can thus afford a detailed
+  epitope-specific understanding of neutralizing-antibody responses to viral
+  infection.%
+  }
+  \verb{doi}
+  \verb 10.1126/science.1233989
+  \endverb
+  \field{number}{6133}
+  \field{pages}{751\bibrangedash 756}
+  \field{title}{Delineating antibody recognition in polyclonal sera from
+  patterns of HIV-1 isolate neutralization.}
+  \verb{url}
+  \verb http://dx.doi.org/10.1126/science.1233989
+  \endverb
+  \field{volume}{340}
+  \field{journaltitle}{Science}
+  \field{year}{2013}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Kirchherr2011}{article}{}
+  \name{author}{16}{}{%
+    {{}%
+     {Kirchherr}{K.}%
+     {Jennifer~L.}{J.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hamilton}{H.}%
+     {Jennifer}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lu}{L.}%
+     {Xiaozhi}{X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gnanakaran}{G.}%
+     {S.}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Muldoon}{M.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Daniels}{D.}%
+     {Marcus}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kasongo}{K.}%
+     {Webster}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chalwe}{C.}%
+     {Victor}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mulenga}{M.}%
+     {Chanda}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mwananyanda}{M.}%
+     {Lawrence}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Musonda}{M.}%
+     {Rosemary~M.}{R.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yuan}{Y.}%
+     {Xing}{X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Montefiori}{M.}%
+     {David~C.}{D.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Korber}{K.}%
+     {Bette~T.}{B.~T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Haynes}{H.}%
+     {Barton~F.}{B.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gao}{G.}%
+     {Feng}{F.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Adult; Amino Acid Substitution, genetics; Antibodies, Neutralizing,
+  immunology; Cross Reactions; Epitopes, genetics/immunology; Female; HIV
+  Antibodies, immunology; HIV Envelope Protein gp120, genetics/immunology;
+  HIV-1, genetics/immunology; Humans; Male; Middle Aged; Molecular Sequence
+  Data; Neutralization Tests; Sequence Analysis, DNA}
+  \strng{namehash}{KJL+1}
+  \strng{fullhash}{KJLHJLXGSMMDMKWCVMCMLMRMYXMDCKBTHBFGF1}
+  \field{abstract}{%
+  Neutralizing antibodies (Nabs) are thought to play an important role in
+  prevention and control of HIV-1 infection and should be targeted by an AIDS
+  vaccine. It is critical to understand how HIV-1 induces Nabs by analyzing
+  viral sequences in both tested viruses and sera. Neutralization
+  susceptibility to antibodies in autologous and heterologous plasma was
+  determined for multiple Envs (3-6) from each of 15 subtype-C-infected
+  individuals. Heterologous neutralization was divided into two distinct
+  groups: plasma with strong, cross-reactive neutralization (n=9) and plasma
+  with weak neutralization (n=6). Plasma with cross-reactive heterologous Nabs
+  also more potently neutralized contemporaneous autologous viruses. Analysis
+  of Env sequences in plasma from both groups revealed a three-amino-acid
+  substitution pattern in the V4 region that was associated with greater
+  neutralization potency and breadth. Identification of such potential
+  neutralization signatures may have important implications for the development
+  of HIV-1 vaccines capable of inducing Nabs to subtype C HIV-1.%
+  }
+  \verb{doi}
+  \verb 10.1016/j.virol.2010.09.031
+  \endverb
+  \field{number}{2}
+  \field{pages}{163\bibrangedash 174}
+  \field{title}{Identification of amino acid substitutions associated with
+  neutralization phenotype in the human immunodeficiency virus type-1 subtype C
+  gp120.}
+  \verb{url}
+  \verb http://dx.doi.org/10.1016/j.virol.2010.09.031
+  \endverb
+  \field{volume}{409}
+  \field{journaltitle}{Virology}
+  \field{year}{2011}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Oh2001}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Oh}{O.}%
+     {Man-Suk}{M.-S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Raftery}{R.}%
+     {Adrian~E}{A.~E.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Taylor \& Francis}%
+  }
+  \strng{namehash}{OMSRAE1}
+  \strng{fullhash}{OMSRAE1}
+  \field{number}{455}
+  \field{pages}{1031\bibrangedash 1044}
+  \field{title}{Bayesian multidimensional scaling and choice of dimension}
+  \field{volume}{96}
+  \field{journaltitle}{JASA}
+  \field{year}{2001}
+\endentry
+
+\entry{Ping2013}{article}{}
+  \name{author}{40}{}{%
+    {{}%
+     {Ping}{P.}%
+     {Li-Hua}{L.-H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Joseph}{J.}%
+     {Sarah~B.}{S.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Anderson}{A.}%
+     {Jeffrey~A.}{J.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Abrahams}{A.}%
+     {Melissa-Rose}{M.-R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Salazar-Gonzalez}{S.-G.}%
+     {Jesus~F.}{J.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kincer}{K.}%
+     {Laura~P.}{L.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Treurnicht}{T.}%
+     {Florette~K.}{F.~K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Arney}{A.}%
+     {Leslie}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ojeda}{O.}%
+     {Suany}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhang}{Z.}%
+     {Ming}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Keys}{K.}%
+     {Jessica}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Potter}{P.}%
+     {E~Lake}{E.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chu}{C.}%
+     {Haitao}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Moore}{M.}%
+     {Penny}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Salazar-Gonzalez}{S.-G.}%
+     {Maria}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Iyer}{I.}%
+     {Shilpa}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jabara}{J.}%
+     {Cassandra}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kirchherr}{K.}%
+     {Jennifer}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mapanje}{M.}%
+     {Clement}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ngandu}{N.}%
+     {Nobubelo}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Seoighe}{S.}%
+     {Cathal}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hoffman}{H.}%
+     {Irving}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gao}{G.}%
+     {Feng}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tang}{T.}%
+     {Yuyang}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Labranche}{L.}%
+     {Celia}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lee}{L.}%
+     {Benhur}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Saville}{S.}%
+     {Andrew}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vermeulen}{V.}%
+     {Marion}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fiscus}{F.}%
+     {Susan}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Morris}{M.}%
+     {Lynn}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {{Abdool Karim}}{A.}%
+     {Salim}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Haynes}{H.}%
+     {Barton~F.}{B.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shaw}{S.}%
+     {George~M.}{G.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Korber}{K.}%
+     {Bette~T.}{B.~T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hahn}{H.}%
+     {Beatrice~H.}{B.~H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cohen}{C.}%
+     {Myron~S.}{M.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Montefiori}{M.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Williamson}{W.}%
+     {Carolyn}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Swanstrom}{S.}%
+     {Ronald}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {}{}%
+     {for the C. A. P. R. I. S. A Acute Infection Study the Center for H. I.
+  V-A. I. D. S Vaccine Immunology~Consortium}{f.~t. C. A. P. R. I. S. A. A. I.
+  S. t. C. f. H. I. V.-A. I. D. S. V. I.~C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{PLH+1}
+  \strng{fullhash}{PLHJSBAJAAMRSGJFKLPTFKALOSZMKJPELCHMPSGMISJCKJMCNNSCHIGFTYLCLBSAVMFSMLASHBFSGMKBTHBHCMSMDWCSRftCAPRISAAIStCfHIVAIDSVIC1}
+  \field{abstract}{%
+  Understanding human immunodeficiency virus type 1 (HIV-1) transmission is
+  central to developing effective prevention strategies, including a vaccine.
+  We compared phenotypic and genetic variation in HIV-1 env genes from subjects
+  in acute/early infection to subjects with chronic infections in the context
+  of subtype C heterosexual transmission. We found that the transmitted viruses
+  all used CCR5 and required high levels of CD4 to infect target cells,
+  suggesting selection for replication in T cells after transmission and not
+  macrophages. In addition, the transmitted viruses were more likely to use a
+  maraviroc-sensitive conformation of CCR5, perhaps identifying a feature of
+  the target T cell. We confirmed an earlier observation that the transmitted
+  viruses were on average modestly under-glycosylated relative to the viruses
+  from chronically infected subjects. This difference was most pronounced in
+  comparing the viruses in acutely infected men to those in chronically
+  infected women. These features of the transmitted virus point to selective
+  pressures during the transmission event. We did not observe a consistent
+  difference in heterologous neutralization sensitivity between the two groups,
+  or in sensitivity to soluble CD4, suggesting similar conformations between
+  viruses from acute and chronic infection. However, the presence or absence of
+  glycosylation sites had differential effects on neutralization sensitivity
+  for different antibodies. We suggest that the occasional absence of
+  glycosylation sites encoded in the conserved regions of env, further reduced
+  in transmitted viruses, could expose specific surface structures on the
+  protein as antibody targets.%
+  }
+  \field{title}{Comparison of Viral Env Proteins From Acute and Chronic
+  Infections of Subtype C Human Immunodeficiency Virus Type 1 Identifies
+  Differences In Glycosylation and CCR5 Utilization and Suggests A New Strategy
+  For Immunogen Design.}
+  \field{journaltitle}{J Virol}
+  \field{year}{2013}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{vanGils2010}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {{van Gils}}{v.}%
+     {Marit~J.}{M.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Edo-Matas}{E.-M.}%
+     {Diana}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schweighardt}{S.}%
+     {Becky}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wrin}{W.}%
+     {Terri}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schuitemaker}{S.}%
+     {Hanneke}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Antibodies, Neutralizing, blood/immunology; Cross Reactions; HIV
+  Antibodies, blood/immunology; HIV Infections, immunology; HIV-1, immunology;
+  Humans; Inhibitory Concentration 50; Netherlands; Neutralization Tests}
+  \strng{namehash}{vMJ+1}
+  \strng{fullhash}{vMJEMDSBWTSH1}
+  \field{abstract}{%
+  It is assumed that an effective human immunodeficiency virus type 1 (HIV-1)
+  vaccine should be capable of eliciting neutralizing antibodies. However, even
+  the best antibodies known to date lack neutralizing ability against a
+  significant proportion of primary HIV-1 variants and, despite great efforts,
+  still no immunogen is available that can elicit humoral immunity which is
+  protective against infection or disease progression. We tested sera from 35
+  participants in the Amsterdam Cohort Studies on HIV-1 infection, who were all
+  infected with HIV-1 subtype B and therapy-naïve at the time of sampling, for
+  neutralizing activity against a panel of 23 tier 2-3 HIV-1 variants, with a
+  minimum of five HIV-1 variants per subtype (A, B, C and D). Strong
+  cross-clade neutralizing activity was detected in sera from seven
+  individuals. Strikingly, sera from 22 of 35 individuals (63\%) neutralized
+  three or more of the six tier 2-3 HIV-1 subtype B viruses in the panel. There
+  was a strong correlation between neutralization titre and breadth in serum.
+  Indeed, the IC(50) of sera with strong cross-clade neutralizing activity was
+  significantly higher than the IC(50) of sera with cross-subtype B activity,
+  which, in turn, had a higher IC(50) than sera with the lowest neutralization
+  breadth. These results imply that humoral immunity, at least in HIV-1 subtype
+  B-infected individuals, is often subtype-specific rather than strain-specific
+  and that the breadth of neutralization is correlated with the titre of
+  neutralizing activity in serum. Considering the difficulties in designing a
+  vaccine that is capable of eliciting cross-clade neutralizing activity,
+  subtype-specific vaccines may be explored as an interesting alternative.%
+  }
+  \verb{doi}
+  \verb 10.1099/vir.0.015693-0
+  \endverb
+  \field{number}{Pt 1}
+  \field{pages}{250\bibrangedash 258}
+  \field{title}{High prevalence of neutralizing activity against multiple
+  unrelated human immunodeficiency virus type 1 (HIV-1) subtype B variants in
+  sera from HIV-1 subtype B-infected individuals: evidence for subtype-specific
+  rather than strain-specific neutralizing activity.}
+  \verb{url}
+  \verb http://dx.doi.org/10.1099/vir.0.015693-0
+  \endverb
+  \field{volume}{91}
+  \field{journaltitle}{J Gen Virol}
+  \field{year}{2010}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

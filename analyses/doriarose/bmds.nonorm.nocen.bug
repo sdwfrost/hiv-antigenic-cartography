@@ -1,0 +1,21 @@
+
+model{
+  for(i in 1:M){
+       d[i] ~ dnorm(delta[i],tau.d)T(0,)
+       delta[i] <- sqrt(pow(x1[rw[i]],2)+pow(x2[rw[i]],2)+pow(y1[cl[i]],2)+pow(y2[cl[i]],2)-2*(x1[rw[i]]*y1[cl[i]]+x2[rw[i]]*y2[cl[i]]))
+  }
+  for(i in 1:N1){
+       x1[i] ~ dnorm(0,tau.x0[1])
+       x2[i] ~ dnorm(0,tau.x0[2])
+  }
+  for(i in 1:N2){
+       y1[i] ~ dnorm(0,tau.x0[1])
+       y2[i] ~ dnorm(0,tau.x0[2])
+  }
+  for(i in 1:2){
+       tau.x0[i] ~ dgamma(0.01,0.01)
+  }
+  tau.x[1:2] <- sort(tau.x0)
+  tau.d ~ dgamma(0.01,0.01)
+}
+

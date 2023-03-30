@@ -1,0 +1,24 @@
+
+model{
+  for(i in 1:M){
+    cen[i] ~ dinterval(d[i],lod[i,1:2])
+    d[i] ~ dnorm(wx[rw[i],cl[i]]+mu[cl[i]],tau.y)
+  }
+  wx <- x%*%t(W)
+  for(j in 1:N2){
+    mu[j] ~ dnorm(0,0.001)
+  }
+  for(i in 1:N1){
+    for(j in 1:2){
+       x[i,j] ~ dnorm(0,1)
+    }
+  }
+  for(i in 1:N2){
+    for(j in 1:2){
+      W[i,j] ~ dnorm(0,tau.W)
+    }
+  }
+  tau.y ~ dgamma(0.01,0.01)
+  tau.W ~ dgamma(0.01,0.01)
+}
+
