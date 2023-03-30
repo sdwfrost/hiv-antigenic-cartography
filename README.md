@@ -4,4 +4,4 @@ This is a repository of data and analyses used to conduct antigenic mapping of H
 
 ## Citation
 
-Frost, S. Mapping antigenic variation in HIV-1 envelope. Retrovirology 10 (Suppl 1), P32 (2013). [https://doi.org/10.1186/1742-4690-10-S1-P32](Frost, S. Mapping antigenic variation in HIV-1 envelope. Retrovirology 10 (Suppl 1), P32 (2013). https://doi.org/10.1186/1742-4690-10-S1-P32)
+Frost, S. Mapping antigenic variation in HIV-1 envelope. Retrovirology 10 (Suppl 1), P32 (2013). [10.1186/1742-4690-10-S1-P32](https://doi.org/10.1186/1742-4690-10-S1-P32)
